@@ -416,31 +416,41 @@
                 </svg>
             </button>
 
-            <b class="modal-text">Залиште свої дані, ми вам передзвонимо</b>
-            
-                <label for="username">І'мя</label>
-                <input 
-                type="text" 
-                name="username" 
-                id="usernme">
+            <b class="modal-title">Залиште свої дані, ми вам передзвонимо</b>
+                <div class="form-box">
+                    <label class="label" for="username">І'мя</label>
+                    <input 
 
-                <label for="phone">Телефон</label>
-                <input 
-                type="tel" 
-                name="phone" 
-                id="phone">
+                    type="text" 
+                    name="username" 
+                    id="usernme">
+                </div>
 
-                <label for="emil">Пошта</label>
-                <input 
-                type="email" 
-                name="email" 
-                id="email">
+                <div class="form-box">
+                    <label class="label" for="phone">Телефон</label>
+                    <input 
+                    type="tel" 
+                    name="phone" 
+                    id="phone">
+                </div>
 
-                <label for="coment">Коментар</label>
-                <textarea name="coment" placeholder="Введіть текст" id="coment" cols="30" rows="10"></textarea>
+                <div class="form-box">
+                    <label class="label" for="emil">Пошта</label>
+                    <input 
+                    type="email" 
+                    name="email" 
+                    id="email">
+                </div>
 
-                <label for="check">Погоджуюся з розсилкою та приймаю <a href="#">Умови договору</a></label>
-                <input type="checkbox" name="check" id="check">
+                <div class="form-box">
+                    <label class="label" for="coment">Коментар</label>
+                    <textarea name="coment" placeholder="Введіть текст" id="coment" cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="form-box checkbox">
+                    <input class="" type="checkbox" name="check" id="check">
+                    <label class="check-label" for="check">Погоджуюся з розсилкою та приймаю <a class="checkbox-link" href="#">Умови договору</a></label>
+                </div>
 
                 <button type="submit" class="button primary">Відправити</button>
             

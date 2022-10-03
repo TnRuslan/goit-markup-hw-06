@@ -9,6 +9,7 @@
 /* Ддатковий колір рамки #ECECEC */
 /* колір іконок #AFB1B8 */
 /* фон силок футера rgba(255, 255, 255, 0.1) */
+/* колір бордеру форм rgba(33, 33, 33, 0.2) */
 
 
 :root {
@@ -21,6 +22,7 @@
     --secondary-border-color: #ECECEC;
     --icon-color: #AFB1B8;
     --footer-icon-bg-color: rgba(255, 255, 255, 0.1);
+    --form-border-color: rgba(33, 33, 33, 0.2);
 }
 
 .list {
@@ -764,4 +766,55 @@ body {
 .user-contacts {
     display: flex;
     flex-direction: column;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.form-box .label {
+    font-size: 12px;
+    line-height: 1.16;
+    margin-bottom: 4px;
+}
+
+.form-box input,
+.form-box textarea {
+    border: 1px solid var(--form-border-color);
+    padding: 11px;
+    border-radius: 4px;
+}
+
+.modal-title {
+    font-size: 20px;
+    line-height: 1.15;
+    color: var(--title-text-color);
+}
+
+.form-box textarea {
+    resize: none;
+    height: 120px;
+}
+
+.form-box.checkbox {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.check-label {
+    font-size: 14px;
+    line-height: 1.71;
+
+    margin-left: 7px;
+}
+
+.checkbox-link {
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
 }
