@@ -389,6 +389,17 @@
                     </li>
                 </ul>
             </div>
+            <div class="subscription-container">
+                <b class="text">Підпишіться на розсилку</b>
+                <form class="footer-subscription" name="subscription">
+                    <input 
+                    class="subscription"
+                    type="email" 
+                    name="email" 
+                    placeholder="E-mail">
+                    <button class="button subsription-btn primary" type="submit">Підписатися</button>
+                </form>
+            </div>
 
 
         </div>
@@ -398,11 +409,41 @@
 
     <div class="backdrop is-hidden" data-modal>
         <div class="modal">
-            <button type="button" class="modal-btn" data-modal-close>
+
+            <button type="button" class="modal-close" data-modal-close>
                 <svg class="close-icon">
                     <use href="./images/symbol-defs.svg#close-icon" width="18" height="18"></use>
                 </svg>
             </button>
+
+            <b class="modal-text">Залиште свої дані, ми вам передзвонимо</b>
+            
+                <label for="username">І'мя</label>
+                <input 
+                type="text" 
+                name="username" 
+                id="usernme">
+
+                <label for="phone">Телефон</label>
+                <input 
+                type="tel" 
+                name="phone" 
+                id="phone">
+
+                <label for="emil">Пошта</label>
+                <input 
+                type="email" 
+                name="email" 
+                id="email">
+
+                <label for="coment">Коментар</label>
+                <textarea name="coment" placeholder="Введіть текст" id="coment" cols="30" rows="10"></textarea>
+
+                <label for="check">Погоджуюся з розсилкою та приймаю <a href="#">Умови договору</a></label>
+                <input type="checkbox" name="check" id="check">
+
+                <button type="submit" class="button primary">Відправити</button>
+            
         </div>
     </div>
 
