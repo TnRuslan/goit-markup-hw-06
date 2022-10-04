@@ -4,6 +4,7 @@
 /* чорний #000000 */
 /* білий #ffffff */
 /* акцент #2196F3 */
+/* фокус-акцент #188CE8; */
 /* основний колір фону #F5F4FA */
 /* Основний колі рамки #EEEEEE */
 /* Ддатковий колір рамки #ECECEC */
@@ -16,6 +17,7 @@
     --primary-text-color: #757575;
     --title-text-color: #212121;
     --accent-color: #2196F3;
+    --focus-acent-color: #188CE8;
     --additional-color: rgba(255, 255, 255, 0.6);
     --additional-bg-color: #F5F4FA;
     --primary-border-color: #EEEEEE;
@@ -32,7 +34,7 @@
 }
 
 
-.no-title {
+.hidden {
     position: absolute;
     white-space: nowrap;
     width: 1px;
@@ -126,7 +128,7 @@ body {
 .active::after {
     position: absolute;
     left: -2px;
-    bottom: 0;
+    bottom: -1px;
 
     content: '';
     width: calc(100% + 4px);
@@ -414,19 +416,22 @@ body {
 
 .clients-list {
     display: flex;
+    gap: 30px;
 
 }
 
-.clients-list .item:not(:last-child) {
+/* .clients-list .item:not(:last-child) {
     margin-right: 30px;
-}
+} */
 
 .clients-list .link {
     width: 170px;
     height: 92px;
 
     display: flex;
-    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    /* padding: 16px 32px; */
     border: 1px solid var(--icon-color);
     border-radius: 4px;
 
@@ -437,7 +442,14 @@ body {
 }
 
 .clients-list .icon {
+    width: 170px;
+    height: 92px;
+
     fill: currentColor;
+}
+
+.clients-list use {
+
 }
 
 .clients-list .link:hover,
@@ -532,7 +544,7 @@ body {
 
 }
 
-.subscription {
+.subscription-input {
     width: 358px;
 
     padding: 15px 16px;
@@ -540,9 +552,21 @@ body {
     border-radius: 4px;
     outline: none;
 
-    background-color: #2F303A;
+    background-color: transparent;
     color: inherit;
 }
+
+.subscription-btn {
+    display: flex;
+    align-items: center;
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
 
 
 /* Портфоліо */
@@ -646,6 +670,12 @@ body {
     font-size: 16px;
     line-height: 1.87;
     letter-spacing: 0.06em;
+
+    transition: backgroud-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button.primary:hover {
+    background-color: var(--focus-acent-color);
 }
 
 .button {  
@@ -713,13 +743,10 @@ body {
     left: 50%;
     transform: translate(-50%,  -50%) scale(1);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 40px;
     min-width: 528px;
     min-height: 581px;
-    padding: 40px;
-    gap: 10px;
+
 
     background-color: #fff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -738,6 +765,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -755,6 +783,16 @@ body {
     color: var(--accent-color);
 }
 
+.modal-title {
+    margin-bottom: 12px;
+
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    
+
+    color: var(--title-text-color);
+}
 
 .close-icon {
     width: 18px;
@@ -763,51 +801,93 @@ body {
     fill: currentColor;
 }
 
-.user-contacts {
+.modal-form {
     display: flex;
     flex-direction: column;
 }
 
-.form-box {
+.input-wrapper {
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    margin-bottom: 10px;
 }
 
-.form-box .label {
+.input-inner {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+
+    width: 18px;
+    height: 18px;
+
+    fill: var(--title-text-color);
+}
+
+.form-input:focus + .input-icon {
+    fill: var(--accent-color);
+}
+    
+
+
+
+.input-label {
     font-size: 12px;
     line-height: 1.16;
     margin-bottom: 4px;
 }
 
-.form-box input,
-.form-box textarea {
+.form-input,
+.form-textarea {
     border: 1px solid var(--form-border-color);
-    padding: 11px;
+    padding: 11px 11px 11px 42px;
     border-radius: 4px;
 }
 
-.modal-title {
-    font-size: 20px;
-    line-height: 1.15;
-    color: var(--title-text-color);
-}
-
-.form-box textarea {
+.form-textarea {
     resize: none;
     height: 120px;
+    padding: 12px 16px;
+
 }
 
-.form-box.checkbox {
-    flex-direction: row;
+/* .form-input:hover,
+.form-textarea:hover, */
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--accent-color);
+
+    outline: transparent;
+}
+
+.form-textarea::placeholder {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.checkbox-wrapper {
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 
 .check-label {
+    display: flex;
+    align-items: center;
+
     font-size: 14px;
     line-height: 1.71;
 
@@ -816,5 +896,34 @@ body {
 
 .checkbox-link {
     color: var(--accent-color);
-    border-bottom: 1px solid var(--accent-color);
+    text-decoration: underline;
+    margin-left: 4px;
+    /* border-bottom: 1px solid var(--accent-color); */
+}
+
+.icon-check-box {
+    display: flex;
+    margin-right: 8px;
+}
+
+.icon-check {
+    width: 16px;
+    height: 15px;
+
+    border: 1px solid var(--title-text-color);
+    border-radius: 2px;
+
+    fill: transparent;
+}
+
+.form-checkbox:checked + .check-label .icon-check {
+    fill: var(--accent-color);
+    border-color: transparent;
+
+}
+
+
+.modal .form-btn.button {
+    margin-right: auto;
+    margin-left: auto;
 }
