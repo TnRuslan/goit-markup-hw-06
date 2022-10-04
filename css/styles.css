@@ -904,22 +904,30 @@ body {
 .icon-check-box {
     display: flex;
     margin-right: 8px;
+    padding: -2px;
+
+    border-radius: 2px;
 }
 
 .icon-check {
     width: 16px;
     height: 15px;
 
-    border: 1px solid var(--title-text-color);
+    border: 2px solid var(--title-text-color);
     border-radius: 2px;
 
     fill: transparent;
 }
 
 .form-checkbox:checked + .check-label .icon-check {
-    fill: var(--accent-color);
+    fill: #FFFFFF;
     border-color: transparent;
 
+}
+
+.form-checkbox:checked + .check-label .icon-check-box {
+    background-color: var(--accent-color);
+    
 }
 
 
